@@ -59,9 +59,15 @@ Pre-trained models for some experiments described in the paper can be found in t
 
 Refer to `options.py` for descriptions of each option. 
 High-level commands are as follows:
-```sh
 
+
+```sh
 # Simple run command
+
+python run.py --problem tspsl --model attention --min_size 20 --max_size 50 --neighbors 0.2 --knn_strat percentage --train_dataset data/tsp/tsp20_test_concorde.txt --val_datasets data/tsp/tsp20_test_concorde.txt --epoch_size 1280000 --batch_size 128 --accumulation_steps 1 --n_epochs 10 --val_size 1280 --rollout_size 1280 --encoder gat --aggregation max --n_encode_layers 3 --gated --normalization batch --learn_norm --embedding_dim 128 --hidden_dim 128 --lr_model 0.0001 --max_grad_norm 1 --num_workers 0 --checkpoint_epochs 0 --run_name sl-ar-var-20pnn-gnn-max
+
+
+
 python run.py --problem tspsl --model attention --min_size 20 --max_size 50 --neighbors 0.2 --knn_strat percentage --train_dataset data/tsp/tsp20-50_train_concorde.txt --val_datasets data/tsp/tsp20_test_concorde.txt data/tsp/tsp50_test_concorde.txt --epoch_size 1280000 --batch_size 128 --accumulation_steps 1 --n_epochs 10 --val_size 1280 --rollout_size 1280 --encoder gnn --aggregation max --n_encode_layers 3 --gated --normalization batch --learn_norm --embedding_dim 128 --hidden_dim 128 --lr_model 0.0001 --max_grad_norm 1 --num_workers 0 --checkpoint_epochs 0 --run_name sl-ar-var-20pnn-gnn-max
 
 # Training
