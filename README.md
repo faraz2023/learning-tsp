@@ -64,6 +64,8 @@ High-level commands are as follows:
 ```sh
 # Simple run command
 
+python eval.py  "data/tsp/tsp10-200_concorde.txt" --val_size "25600" --batch_size 16 --model "outputs/tsp_20-50/sl-ar-var-full-gat_20200521T141137" --decode_strategies "greedy" "bs" --widths 0 128 --num_workers 0
+
 python run.py --problem tspsl --model attention --min_size 20 --max_size 50 --neighbors 0.2 --knn_strat percentage --train_dataset data/tsp/tsp20_test_concorde.txt --val_datasets data/tsp/tsp20_test_concorde.txt --epoch_size 1280000 --batch_size 128 --accumulation_steps 1 --n_epochs 10 --val_size 1280 --rollout_size 1280 --encoder gat --aggregation max --n_encode_layers 3 --gated --normalization batch --learn_norm --embedding_dim 128 --hidden_dim 128 --lr_model 0.0001 --max_grad_norm 1 --num_workers 0 --checkpoint_epochs 0 --run_name sl-ar-var-20pnn-gnn-max
 
 
