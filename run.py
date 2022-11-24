@@ -7,7 +7,7 @@ import numpy as np
 
 import torch
 import torch.optim as optim
-from tensorboard_logger import Logger as TbLogger
+#from tensorboard_logger import Logger as TbLogger
 
 from options import get_options
 from train import train_epoch, train_epoch_sl, validate, get_inner_model
@@ -47,6 +47,7 @@ def _run_rl(opts):
 
     # Optionally configure tensorboard
     tb_logger = None
+
     if not opts.no_tensorboard:
         tb_logger = TbLogger(os.path.join(
             opts.log_dir, "{}_{}-{}".format(opts.problem, opts.min_size, opts.max_size), opts.run_name))
@@ -352,4 +353,6 @@ def _run_sl(opts):
 
 
 if __name__ == "__main__":
-    run(get_options())
+    options = get_options()
+    options.no_tensorboard = True
+    run(options)
